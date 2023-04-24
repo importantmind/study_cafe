@@ -51,18 +51,78 @@ public class LoginView {
 			return;
 		}
 		
-		System.out.printf("%s님 로그인 성공!\n", dto.getName() );
+		System.out.printf("%s님 로그인 성공!\n", dto.getName());
 		
-		//시간선택으로 넘어가는 메소드
 		
+		
+		while(true) {
+			
+			System.out.println("*** 선택 메뉴를 골라주세요 ***");
+			System.out.println("*** 1. 회원정보 수정하기 ***");
+			System.out.println("*** 2. 돈 충전하기 ***");
+			System.out.println("*** 3. 좌석 선택하기 ***");
+			System.out.println("*** 4. 좌석 수정하기 ***");
+			System.out.println("*** 5. 간식사기 ***");			
+			System.out.println("*** 6. 첫화면으로 돌아가기 ***");
+			
+			int num = sc.nextInt();
+			
+			switch (num) {
+			//1. 회원정보 수정하기
+			case 1: updateMemeber(); break;
+			//2. 돈 충전
+			case 2: plusMoney(); break;
+			//3. 좌석선택
+			case 3: return;
+			//4. 좌석 수정하기
+			case 4: return;
+			//5. 간식사기
+			case 5: return;
+			//6. 첫화면으로 돌아가기
+			case 6: return;
+			default: System.out.println("번호를 잘못눌렀어요! 다시해주세요!"); break;
+			
+			}
+		}
 	}
 	
 	// 3. 회원 정보 수정
+	public void updateMemeber() {
+		System.out.print("수정할 이름 (미입력시 기존이름 반영) :  ");
+		String name = sc.next();
+		System.out.print("핸드폰번호 (미입력시 기존핸드폰번호 반영) : ");
+		String phoneNumber = sc.next();
+		loginController.update(name, phoneNumber);
+	}
 	
 	
-	// 4. 회원 탈퇴
+	// 4. 회원 로그아웃
+	public void logout() {
+		if(loginController.getMember() == null) {
+			System.out.println("로그인이 되지 않았습니다. 로그인 후 진행해주세요");
+			return;
+		}
+		loginController.resetMember();
+	}
 	
+	//5. 돈 충전
+	public void plusMoney() {
+		System.out.print("추가할 금액을 입력해주세요! :  ");
+		int money = sc.nextInt();
+		
+		boolean result = loginController.changeMoney(money);
+		if(!result) {
+			System.out.println("로그인 또는 입력한 금액이 잘못되었습니다.");
+			return;
+		}
+		System.out.printf("돈을 충전했습니다. 현재 %s님의 금액 : %d원\n",loginController.getMember(), loginController.getMember().getMoney());
+		
+	}
 	
-	// 5. 회원정보 수정
+	//6. 전체 사용자 수
+	public int AllMember() {
+		return loginController.findAll().size();
+	}
+
 
 }

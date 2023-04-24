@@ -30,7 +30,6 @@ public class LoginController {
 	
 	//2. 전체조회
 	public List<MemberDTO> findAll(){
-		System.out.println(members);
 		return members;
 	}
 	
@@ -47,12 +46,15 @@ public class LoginController {
 	
 	//4. 수정
 	public MemberDTO update(String name, String phoneNumber) {
+		// 둘다 입력안할 시
 		if(name.isEmpty() && phoneNumber.isEmpty()) return member;
 		
+		// 이름만 입력
 		if(!(name.isEmpty()) && phoneNumber.isEmpty()) {
 			member.setName(name);
 			return member;
 		}
+		// 핸드폰 번호만 입력
 		if(name.isEmpty() && !(phoneNumber.isEmpty())) {
 			member.setPhoneNumber(phoneNumber);
 			return member;
@@ -74,19 +76,24 @@ public class LoginController {
 	}
 	
 	// 6. 돈 변경
-	public void changeMoney(int money) {
-		if(member == null) {
-			System.out.println("로그인이 안되어 있습니다.");
-			return;
-		}
-		member.setMoney(money);
-		System.out.println("현재 보유한 돈이 수정되었습니다.");
+	public boolean changeMoney(int money) {
+		if(getMember() == null || money < 0) return false;
+		
+		member.setMoney(member.getMoney() + money);
+		return true;
 	}
 	
 	// 7. 현재 회원
 	public MemberDTO getMember() {
 		return this.member;
 	}
+	
+	// 8. 현재 회원 초기화
+	public void resetMember() {
+		this.member = null;
+	}
+	
+	
 
 	
 	
