@@ -76,8 +76,9 @@ public class LoginView {
 			System.out.println("*** 2. 돈 충전하기 ***");
 			System.out.println("*** 3. 좌석 선택하기 ***");
 			System.out.println("*** 4. 좌석 수정하기 ***");
-			System.out.println("*** 5. 간식 구매하기 ***");			
-			System.out.println("*** 6. 첫화면으로 돌아가기 ***");
+			System.out.println("*** 5. 좌석 반납하기 ***");			
+			System.out.println("*** 6. 간식 구매하기 ***");			
+			System.out.println("*** 7. 첫화면으로 돌아가기 ***");
 			
 			int num = sc.nextInt();
 			
@@ -89,11 +90,13 @@ public class LoginView {
 			//3. 좌석선택
 			case 3: sct.seatView(); break;
 			//4. 좌석 수정하기
-			case 4: return;
-			//5. 간식 구매하기
-			case 5: sv.snackSelect(); break;
-			//6. 첫화면으로 돌아가기
-			case 6: return;
+			case 4: sct.seatMove(); break;
+			//5. 좌석 반납하기
+			case 5: sct.seatReturn(); break;
+			//6. 간식 구매하기
+			case 6: sv.snackSelect(); break;
+			//7. 첫화면으로 돌아가기
+			case 7: return;
 			default: System.out.println("번호를 잘못눌렀어요! 다시해주세요!"); break;
 			
 			}
