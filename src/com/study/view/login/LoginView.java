@@ -8,6 +8,7 @@ import com.study.dto.MemberDTO;
 public class LoginView {
 	
 	private LoginController loginController;
+	private SnackView sv = new SnackView();
 	private Scanner sc;
 	
 	public LoginView() {
@@ -62,7 +63,7 @@ public class LoginView {
 			System.out.println("*** 2. 돈 충전하기 ***");
 			System.out.println("*** 3. 좌석 선택하기 ***");
 			System.out.println("*** 4. 좌석 수정하기 ***");
-			System.out.println("*** 5. 간식사기 ***");			
+			System.out.println("*** 5. 간식 구매하기 ***");			
 			System.out.println("*** 6. 첫화면으로 돌아가기 ***");
 			
 			int num = sc.nextInt();
@@ -76,8 +77,8 @@ public class LoginView {
 			case 3: return;
 			//4. 좌석 수정하기
 			case 4: return;
-			//5. 간식사기
-			case 5: return;
+			//5. 간식 구매하기
+			case 5: sv.snackSelect(); return;
 			//6. 첫화면으로 돌아가기
 			case 6: return;
 			default: System.out.println("번호를 잘못눌렀어요! 다시해주세요!"); break;
