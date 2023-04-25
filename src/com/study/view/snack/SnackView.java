@@ -51,12 +51,14 @@ public class SnackView {
 	//2. 과자 결제
 	public void creditSnack(int num) {
 		boolean result = snackController.choiceSnack(num);
+		
 		MemberDTO member = lc.getMember();
 
 		if(!result) {
 			System.out.println("현재 보유하신 금액이 부족합니다. 보유금액 : " + member.getMoney() + "원");
 			return;
 		}
+		
 		System.out.println("구매 완료되었습니다.");
 		System.out.println("남은 돈은 " + member.getMoney() + "원 입니다.");
 	}
