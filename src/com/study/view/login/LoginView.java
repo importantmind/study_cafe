@@ -88,9 +88,9 @@ public class LoginView {
 	
 	// 3. 회원 정보 수정
 	public void updateMemeber() {
-		System.out.print("수정할 이름 (미입력시 기존이름 반영) :  ");
+		System.out.print("수정할 이름 (기존이름 유지-> '-' 입력) :  ");
 		String name = sc.next();
-		System.out.print("핸드폰번호 (미입력시 기존핸드폰번호 반영) : ");
+		System.out.print("핸드폰번호 (기존 핸드폰번호 유지-> '-' 입력 ) : ");
 		String phoneNumber = sc.next();
 		loginController.update(name, phoneNumber);
 	}
