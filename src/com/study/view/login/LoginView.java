@@ -3,13 +3,16 @@ package com.study.view.login;
 import java.util.Scanner;
 
 import com.study.controller.LoginController;
+import com.study.controller.SeatController;
 import com.study.dto.MemberDTO;
+import com.study.view.seat.SeatView;
 import com.study.view.snack.SnackView;
 
 public class LoginView {
 	
 	private LoginController loginController;
 	private SnackView sv = new SnackView();
+	private SeatView sct = new SeatView(); 
 	private Scanner sc;
 	
 	public LoginView() {
@@ -84,7 +87,7 @@ public class LoginView {
 			//2. 돈 충전
 			case 2: plusMoney(); break;
 			//3. 좌석선택
-			case 3: return;
+			case 3: sct.seatView(); break;
 			//4. 좌석 수정하기
 			case 4: return;
 			//5. 간식 구매하기
