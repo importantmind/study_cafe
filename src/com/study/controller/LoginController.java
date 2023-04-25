@@ -48,15 +48,15 @@ public class LoginController {
 	//4. 수정
 	public MemberDTO update(String name, String phoneNumber) {
 		// 둘다 입력안할 시
-		if(name.isEmpty() && phoneNumber.isEmpty()) return member;
+		if(name.equals("-") && phoneNumber.equals("-")) return member;
 		
 		// 이름만 입력
-		if(!(name.isEmpty()) && phoneNumber.isEmpty()) {
+		if((name.equals("-") == false) && phoneNumber.equals("-")) {
 			member.setName(name);
 			return member;
 		}
 		// 핸드폰 번호만 입력
-		if(name.isEmpty() && !(phoneNumber.isEmpty())) {
+		if(name.equals("-") && (phoneNumber.equals("-") == false)) {
 			member.setPhoneNumber(phoneNumber);
 			return member;
 		}
