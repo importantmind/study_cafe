@@ -36,9 +36,10 @@ public class LoginController {
 	//3. 한명 조회
 	public MemberDTO findByMember(MemberDTO member) {
 		for (MemberDTO memberDto : members) {
-			if(memberDto.equals(member))
+			if(memberDto.equals(member)) {
 				this.member = memberDto;
 				return memberDto;
+			}
 		}
 		MemberDTO.count--;
 		return null; // 널...밖에 없나
