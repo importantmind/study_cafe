@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.study.controller.LoginController;
 import com.study.dto.MemberDTO;
+import com.study.view.snack.SnackView;
 
 public class LoginView {
 	
@@ -39,6 +40,12 @@ public class LoginView {
 
 	// 2. 로그인
 	public void login() {
+		
+		if(loginController.getMember() != null) {
+			loginSuccess();
+			return;
+		}
+		
 		System.out.print("이름 : ");
 		String name = sc.next();
 		System.out.print("핸드폰번호 : ");
@@ -54,7 +61,10 @@ public class LoginView {
 		
 		System.out.printf("%s님 로그인 성공!\n", dto.getName());
 		
-		
+		loginSuccess();
+	}
+
+	private void loginSuccess() {
 		
 		while(true) {
 			
@@ -78,7 +88,7 @@ public class LoginView {
 			//4. 좌석 수정하기
 			case 4: return;
 			//5. 간식 구매하기
-			case 5: sv.snackSelect(); return;
+			case 5: sv.snackSelect(); break;
 			//6. 첫화면으로 돌아가기
 			case 6: return;
 			default: System.out.println("번호를 잘못눌렀어요! 다시해주세요!"); break;

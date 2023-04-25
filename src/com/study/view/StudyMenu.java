@@ -3,16 +3,18 @@ package com.study.view;
 import java.util.Scanner;
 
 import com.study.view.login.LoginView;
+import com.study.view.snack.SnackView;
 
 public class StudyMenu {
 	
 	private Scanner sc;
 	private LoginView lv;
-	
+	private SnackView sv;
+
 	public StudyMenu() {
-	
 		sc = new Scanner(System.in);		
 		lv = new LoginView();
+		sv = new SnackView();
 	}
 	
 	public void mainMenu() {
@@ -29,19 +31,14 @@ public class StudyMenu {
 			switch (num) {
 			case 1: lv.register(); break;
 			case 2: lv.login(); break;
-			case 3: 
+			case 3: sv.snackSelect(); break;
 			case 4: return;
 			default: System.out.println("잘못된 번호를 입력하셨습니다. 다시 입력해주세요");
 			
 			}
-
 			
 		}
 		
 	}
 	
-	
-	
-	
-
 }
