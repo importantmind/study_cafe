@@ -76,7 +76,7 @@ public class LoginView {
 			System.out.println("*** 2. 돈 충전하기 ***");
 			System.out.println("*** 3. 좌석 선택하기 ***");
 			System.out.println("*** 4. 좌석 수정하기 ***");
-			System.out.println("*** 5. 좌석 반납하기 ***");			
+			System.out.println("*** 5. 퇴실하기 ***");			
 			System.out.println("*** 6. 간식 구매하기 ***");			
 			System.out.println("*** 7. 첫화면으로 돌아가기 ***");
 			
