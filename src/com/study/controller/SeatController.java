@@ -3,10 +3,13 @@ package com.study.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.study.dto.MemberDTO;
 import com.study.dto.SeatDTO;
 import com.study.dto.SnackDTO;
 
 public class SeatController {
+	
+	MemberDTO mb = new MemberDTO();
 	
 	private static List<SeatDTO> seats = new ArrayList<>();
 	
@@ -23,7 +26,7 @@ public class SeatController {
 	}
 	
 
-	public List<SeatDTO> getSnacks(){
+	public List<SeatDTO> getSeat(){
 		return SeatController.seats;
 
 }

@@ -10,7 +10,19 @@ public class MemberDTO {
 	private String phoneNumber;
 	private int money;
 	private SeatDTO seatDTO;
+////////////////////////////////////////////////////////////
+	private int num = 0;
 	
+	public int getNum() {
+		return num;
+	}
+	
+	public void setNum(int num) {
+		this.num = num;
+	}
+//////////////////////////////////////////////////////////////
+	
+
 	public MemberDTO() {}
 
 	public MemberDTO(String name, String phoneNumber, int money) {
@@ -86,10 +98,5 @@ public class MemberDTO {
 		return Objects.equals(name, other.name) && Objects.equals(phoneNumber, other.phoneNumber);
 	}
 
-	
-	
-	
-	
-	
 	
 }

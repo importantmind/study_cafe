@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.study.dto.MemberDTO;
+import com.study.dto.SeatDTO;
 
 public class LoginController {
 
@@ -94,9 +95,10 @@ public class LoginController {
 	}
 	
 	
+	public List<MemberDTO> listMember(){
+		return LoginController.members;
 	
 	
 	
-	
-
+	}
 }
