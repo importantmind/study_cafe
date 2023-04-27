@@ -3,18 +3,16 @@ package com.study.view.login;
 import java.util.Scanner;
 
 import com.study.controller.LoginController;
-import com.study.controller.SeatController;
+//import com.study.controller.SeatController;
 import com.study.dto.MemberDTO;
-//import com.study.view.seat.SeatView;
-import com.study.view.seat.SeatView2;
+import com.study.view.seat.SeatView;
 import com.study.view.snack.SnackView;
 
 public class LoginView {
 	
 	private LoginController loginController;
 	private SnackView sv = new SnackView();
-//	private SeatView sct = new SeatView(); 
-	private SeatView2 sct = new SeatView2(); 
+	private SeatView sct = new SeatView(); 
 	private Scanner sc;
 	
 	public LoginView() {
