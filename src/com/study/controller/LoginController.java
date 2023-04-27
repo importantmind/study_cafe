@@ -93,11 +93,7 @@ public class LoginController {
 		LoginController.member = null;
 	}
 	
-	// 9. 좌석 초기화
-	public void resetSeat() {
-		LoginController.member.setSeatDTO(null);
-	}	
-	
+
 	//7. 유효성 검사
 	public String checkMethod(String regExp, String input) {
 		if(Pattern.matches(regExp, input)) return input;

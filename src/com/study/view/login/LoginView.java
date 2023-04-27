@@ -5,12 +5,14 @@ import java.util.regex.Pattern;
 
 import com.study.controller.LoginController;
 import com.study.dto.MemberDTO;
+import com.study.view.seat.SeatView;
 import com.study.view.snack.SnackView;
 
 public class LoginView {
 	
 	private LoginController loginController;
 	private SnackView sv = new SnackView();
+	private SeatView seatView = new SeatView();
 	private Scanner sc;
 	
 	public LoginView() {
@@ -98,9 +100,9 @@ public class LoginView {
 			//2. 돈 충전
 			case 2: plusMoney(); break;
 			//3. 좌석선택
-			case 3: return;
+			case 3: seatView.choiceSeat(); return;
 			//4. 좌석 수정하기
-			case 4: return;
+			case 4: seatView.seatMove(); break;
 			//5. 간식 구매하기
 			case 5: sv.snackSelect(); break;
 			//6. 첫화면으로 돌아가기
@@ -149,7 +151,7 @@ public class LoginView {
 		return loginController.findAll().size();
 	}
 	
-	
+	// 7. 현재 회원 확인	
 
 
 }
