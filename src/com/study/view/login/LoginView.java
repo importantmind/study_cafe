@@ -5,16 +5,16 @@ import java.util.Scanner;
 import com.study.controller.LoginController;
 import com.study.controller.SeatController;
 import com.study.dto.MemberDTO;
-import com.study.view.seat.SeatView;
-//import com.study.view.seat.SeatView2;
+//import com.study.view.seat.SeatView;
+import com.study.view.seat.SeatView2;
 import com.study.view.snack.SnackView;
 
 public class LoginView {
 	
 	private LoginController loginController;
 	private SnackView sv = new SnackView();
-	private SeatView sct = new SeatView(); 
-//	private SeatView2 sct = new SeatView2(); 
+//	private SeatView sct = new SeatView(); 
+	private SeatView2 sct = new SeatView2(); 
 	private Scanner sc;
 	
 	public LoginView() {
@@ -30,8 +30,9 @@ public class LoginView {
 		String phoneNumber = sc.next();
 		System.out.print("보유 money : ");
 		int money = sc.nextInt();
+		int num = 0;
 		
-		MemberDTO member = new MemberDTO(name, phoneNumber, money);
+		MemberDTO member = new MemberDTO(name, phoneNumber, money, num);
 		boolean result = loginController.add(member); 
 		
 		if(result) {
@@ -55,7 +56,7 @@ public class LoginView {
 		String name = sc.next();
 		System.out.print("핸드폰번호 : ");
 		String phoneNumber = sc.next();
-		MemberDTO member = new MemberDTO(name, phoneNumber, 0);
+		MemberDTO member = new MemberDTO(name, phoneNumber);
 		
 		MemberDTO dto = loginController.findByMember(member);
 		

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.study.dto.MemberDTO;
-import com.study.dto.SeatDTO;
 
 public class LoginController {
 
@@ -12,8 +11,8 @@ public class LoginController {
 	private static MemberDTO member;
 	
 	static {
-		members.add(new MemberDTO("주진선", "010-1111-1111", 100000));
-		members.add(new MemberDTO("김해든", "010-2222-2222", 100000));
+		members.add(new MemberDTO("주진선", "010-1111-1111", 100000, 0));
+		members.add(new MemberDTO("김해든", "010-2222-2222", 100000, 0));
 	}
 	
 	// 1. 회원 추가

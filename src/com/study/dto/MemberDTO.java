@@ -25,11 +25,16 @@ public class MemberDTO {
 
 	public MemberDTO() {}
 
-	public MemberDTO(String name, String phoneNumber, int money) {
+	public MemberDTO(String name, String phoneNumber, int money, int num) {
 		this.id = count++;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.money = money;
+		this.num = num;
+	}
+
+	public MemberDTO(String name2, String phoneNumber2) {
+		
 	}
 
 	public String getName() {
