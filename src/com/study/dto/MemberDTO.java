@@ -33,9 +33,7 @@ public class MemberDTO {
 		this.num = num;
 	}
 
-	public MemberDTO(String name2, String phoneNumber2) {
-		
-	}
+
 
 	public String getName() {
 		return name;
@@ -81,7 +79,7 @@ public class MemberDTO {
 	@Override
 	public String toString() {
 		return "id : " + id + ", 이름 : " + name + ", 핸드폰 번호 : " + phoneNumber + ", 현재 보유한 돈 : " + money
-				+ ", 현재 자리 : " + seatDTO ;
+				+ ", 현재 자리 : " + num ;
 	}
 
 

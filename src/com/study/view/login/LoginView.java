@@ -54,7 +54,7 @@ public class LoginView {
 		String name = sc.next();
 		System.out.print("핸드폰번호 : ");
 		String phoneNumber = sc.next();
-		MemberDTO member = new MemberDTO(name, phoneNumber);
+		MemberDTO member = new MemberDTO(name, phoneNumber,0,0);
 		
 		MemberDTO dto = loginController.findByMember(member);
 		
