@@ -1,18 +1,16 @@
 package com.study.view.login;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 import com.study.controller.LoginController;
-import com.study.controller.SeatController;
 import com.study.dto.MemberDTO;
-import com.study.view.seat.SeatView;
 import com.study.view.snack.SnackView;
 
 public class LoginView {
 	
 	private LoginController loginController;
 	private SnackView sv = new SnackView();
-	private SeatView sct = new SeatView(); 
 	private Scanner sc;
 	
 	public LoginView() {
@@ -22,10 +20,23 @@ public class LoginView {
 	
 	// 1. 회원가입
 	public void register() {
+		String pattern2 = "^\\d{3}-\\d{3,4}-\\d{4}$";
+		
 		System.out.print("이름 : ");
 		String name = sc.next();
-		System.out.print("핸드폰번호 : ");
-		String phoneNumber = sc.next();
+		String phoneNumber;
+		while(true) {
+			System.out.print("핸드폰번호 : ");			
+			String temp = sc.next();
+			
+			phoneNumber = loginController.checkMethod(pattern2,temp);
+			
+			if(phoneNumber != null) break;
+			
+			System.out.println("핸드폰번호 양식에 맞게 작성해주세요 000-0000-0000");
+			
+		}
+
 		System.out.print("보유 money : ");
 		int money = sc.nextInt();
 		
@@ -76,9 +87,8 @@ public class LoginView {
 			System.out.println("*** 2. 돈 충전하기 ***");
 			System.out.println("*** 3. 좌석 선택하기 ***");
 			System.out.println("*** 4. 좌석 수정하기 ***");
-			System.out.println("*** 5. 퇴실하기 ***");			
-			System.out.println("*** 6. 간식 구매하기 ***");			
-			System.out.println("*** 7. 첫화면으로 돌아가기 ***");
+			System.out.println("*** 5. 간식 구매하기 ***");			
+			System.out.println("*** 6. 첫화면으로 돌아가기 ***");
 			
 			int num = sc.nextInt();
 			
@@ -88,15 +98,13 @@ public class LoginView {
 			//2. 돈 충전
 			case 2: plusMoney(); break;
 			//3. 좌석선택
-			case 3: sct.seatView(); break;
+			case 3: return;
 			//4. 좌석 수정하기
-			case 4: sct.seatMove(); break;
-			//5. 좌석 반납하기
-			case 5: sct.seatReturn(); break;
-			//6. 간식 구매하기
-			case 6: sv.snackSelect(); break;
-			//7. 첫화면으로 돌아가기
-			case 7: return;
+			case 4: return;
+			//5. 간식 구매하기
+			case 5: sv.snackSelect(); break;
+			//6. 첫화면으로 돌아가기
+			case 6: return;
 			default: System.out.println("번호를 잘못눌렀어요! 다시해주세요!"); break;
 			
 			}
@@ -140,6 +148,8 @@ public class LoginView {
 	public int AllMember() {
 		return loginController.findAll().size();
 	}
+	
+	
 
 
 }

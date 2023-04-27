@@ -2,6 +2,7 @@ package com.study.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import com.study.dto.MemberDTO;
 
@@ -68,7 +69,6 @@ public class LoginController {
 	//5. 회원 삭제
 	public void remove (MemberDTO member) {
 		if(member == null) {
-			System.out.println("해당 회원이 없습니다.");
 			return;
 		}
 		
@@ -93,9 +93,17 @@ public class LoginController {
 		LoginController.member = null;
 	}
 	
+	// 9. 좌석 초기화
+	public void resetSeat() {
+		LoginController.member.setSeatDTO(null);
+	}	
 	
-	
-	
+	//7. 유효성 검사
+	public String checkMethod(String regExp, String input) {
+		if(Pattern.matches(regExp, input)) return input;
+		 
+		return null;
+	}
 	
 	
 
