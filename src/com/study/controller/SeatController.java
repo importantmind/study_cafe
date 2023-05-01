@@ -50,7 +50,8 @@ public class SeatController {
 	//5. 자리 상태 (O, X)리스트 반환
 	public List<String> seatStatus(){
 		return SeatController.seats.stream()
-				.map(t -> t.isSet() == false? t.getNum()+"번: O": t.getNum()+"번: X").collect(Collectors.toList());
+				.map(t -> t.isSet() == false? t.getNum()+"번: O": t.getNum()+"번: X")
+				.collect(Collectors.toList());
 	}
 	
 	//좌석을 선택하면 회원의 seat에 들어가야하고, true로 바뀌어야한다.

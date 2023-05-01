@@ -61,6 +61,11 @@ public class SeatView {
 	
 	//2. 좌석 옮기는 메소드
 	public void seatMove() {
+		if(lc.getMember().getSeatDTO() == null) {
+			System.out.println("현재 선택하신 좌석이 없습니다. 좌석선택 후 진행해주세요");
+			return;
+		}
+		
 		boolean go = true;
 		while(go == true) {
 		System.out.println("======== 좌석 현황 ========");
